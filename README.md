@@ -1,1 +1,1 @@
-# Work-Books
+Maintain important financial data in regards to stocks, cryptocurrency, or currency conversion rates. Web Books is an organizational tool for entrepreneurs and business owners to better assess their investments and prospects.
