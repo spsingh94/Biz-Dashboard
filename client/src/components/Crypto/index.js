@@ -1,28 +1,36 @@
-import React from "react";
+import React, {useState} from "react";
 import "./style.css";
-import $ from "jquery";
+import fetch from "node-fetch";
 
 function Crypto() {
-
-$("#search-crypto").on("click", function(event) {
-    event.preventDefault();
-    var crypto = $("#crypto-input").val().toUpperCase();
-    var queryURL = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=" + crypto + "&tsyms=USD,CAD";
+  const [cryptoCurrency, setCryptoCurrency] = useState("BTC");
+  const [cryptoData, setCryptoData] = useState([]);
+  console.log(cryptoData);
 
 
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function(cryptoValue) {
-        //How to get the USD/CAD value, for different types of crypto currency?
-        //ORDER: Ex: BTC:{BTC:{USD:0.00, CAD:00.00}}
-        console.log(cryptoValue[crypto]); //for object within object, put second one in array of FIRST one
-
-        $("#crypto-output").html("Price Per 1 " + crypto + ": $" + cryptoValue[crypto].USD + "(USD)");
-
-    });
-});
-
+    function getPrice(event){
+      event.preventDefault()
+      if(event.target.value == null){
+        alert("please enter something");
+      } else {        
+        fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${cryptoCurrency}&tsyms=USD,CAD`)
+        .then(res => res.json())
+        .then(result => console.log(result))
+        .then(data => setCryptoData = data)
+      }
+      };
+      
+    function getPrice(event){
+      event.preventDefault()
+      if(event.target.value == null){
+        alert("please enter something");
+      } else {        
+        fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${cryptoCurrency}&tsyms=USD,CAD`)
+        .then(res => res.json())
+        .then(result => console.log(result))
+        .then(data => setCryptoData = data)
+      }
+      };
 
 
   return (
@@ -57,6 +65,7 @@ $("#search-crypto").on("click", function(event) {
               </tr>
               <div className="button_holder">
                 <input
+                  onClick={getPrice}
                   id="search-crypto"
                   type="submit"
                   value="Search Cryptocurrency"
