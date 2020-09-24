@@ -25,7 +25,7 @@ function Stocks(props) {
   const apiKey = process.env.REACT_APP_STOCKS;
 
   //set up dataurl
-  const dataURL = `http://api.marketstack.com/v1/eod?access_key=${apiKey}`;
+  const dataURL = `https://api.marketstack.com/v1/eod?access_key=${apiKey}`;
 
   //useeffect to update symbols as needed
   useEffect(() => {
