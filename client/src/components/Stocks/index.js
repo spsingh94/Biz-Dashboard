@@ -3,12 +3,17 @@ import fetch from "node-fetch";
 import "./style.css";
 
 function Stocks(props) {
-//   const { onChangeSymbol, setReference } = props;
-  //set up state for symbol because that will change based on user input
   const [symbol, setSymbol] = useState();
   const [stock, setStock] = useState();
+  const [stockSymbol, setStockSymbol] = useState();
+  const [stockPrice, setStockPrice] = useState();
+  const [stockTodayHigh, setStockTodayHigh] = useState();
+  const [stockTodayLow, setStockTodayLow] = useState();
+  const [stockClose, setStockClose] = useState();
+
   console.log(stock);
   console.log(symbol);
+  console.log(stock);
 
   const inputRef = useRef();
 
@@ -22,16 +27,26 @@ function Stocks(props) {
   useEffect(() => {
     if (symbol != null) {
       fetch(`${dataURL}&symbols=${symbol}`)
-      .then((res) => res.json())
+        .then((res) => res.json())
+        // .then((result) => console.log(result))
         .then((data) => setStock([data]));
     }
   }, [dataURL, symbol]);
+
+  useEffect(() => {
+    if (stock != null) {
+      setStockSymbol(stock[0].data[0].symbol);
+      setStockPrice(stock[0].data[0].close);
+      setStockTodayHigh(stock[0].data[0].adj_high);
+      setStockTodayLow(stock[0].data[0].adj_low);
+      setStockClose(stock[0].data[1].close);
+    }
+  }, [stock]);
 
   //set up function that sets symbol based off of user input
   function updateSymbol() {
     setSymbol(inputRef.current.value);
   }
-  
 
   return (
     <div className="container" id="stock">
@@ -58,24 +73,35 @@ function Stocks(props) {
             <thead>
               <tr>
                 <th scope="col">Symbol &emsp;</th>
-                <th scope="col">Name &emsp;</th>
+                {/* <th scope="col">Name &emsp;</th> */}
                 <th scope="col">Price &emsp;</th>
-                <th scope="col">Today's Change</th>
+                <th scope="col">Today's High</th>
+                <th scope="col">Today's Low</th>
                 <th scope="col">At Close Yesterday</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td id="td1"></td>
-                <td id="td2"></td>
-                <td id="td3"></td>
-                <td id="td4"></td>
-                <td id="td5"></td>
+                <td id="symbol">{stockSymbol}</td>
+                {/* <td id="name"></td> */}
+                <td id="price" value="">
+                  {stockPrice}
+                </td>
+                <td id="high" value="">
+                  {stockTodayHigh}
+                </td>
+                <td id="low" value="">
+                  {stockTodayLow}
+                </td>
+                <td id="y-close" value="">
+                  {stockClose}
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+      <p id="p-tag"></p>
     </div>
   );
 }

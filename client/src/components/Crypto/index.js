@@ -1,37 +1,39 @@
-import React, {useState} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./style.css";
 import fetch from "node-fetch";
 
 function Crypto() {
-  const [cryptoCurrency, setCryptoCurrency] = useState("BTC");
-  const [cryptoData, setCryptoData] = useState([]);
-  console.log(cryptoData);
+  const [cryptoCurrency, setCryptoCurrency] = useState();
+  const [cryptoData, setCryptoData] = useState();
+  const [usd, setUsd] = useState();
+  const [coinId, setCoinId] = useState();
+  const [name, setName] = useState();
 
+  const inputRef = useRef();
 
-    function getPrice(event){
-      event.preventDefault()
-      if(event.target.value == null){
-        alert("please enter something");
-      } else {        
-        fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${cryptoCurrency}&tsyms=USD,CAD`)
-        .then(res => res.json())
-        .then(result => console.log(result))
-        .then(data => setCryptoData = data)
-      }
-      };
-      
-    function getPrice(event){
-      event.preventDefault()
-      if(event.target.value == null){
-        alert("please enter something");
-      } else {        
-        fetch(`https://min-api.cryptocompare.com/data/pricemulti?fsyms=${cryptoCurrency}&tsyms=USD,CAD`)
-        .then(res => res.json())
-        .then(result => console.log(result))
-        .then(data => setCryptoData = data)
-      }
-      };
+  const apiKey = process.env.REACT_APP_CRYPTO;
 
+  useEffect(() => {
+    if (cryptoCurrency != null) {
+      fetch(
+        `https://rest.coinapi.io/v1/assets/${cryptoCurrency}/?apikey=${apiKey}`
+      )
+        .then((res) => res.json())
+        .then((data) => setCryptoData([data]));
+    }
+  }, [cryptoCurrency, apiKey]);
+
+  useEffect(() => {
+    if (cryptoData != null) {
+      setUsd(cryptoData[0][0].price_usd);
+      setCoinId(cryptoData[0][0].asset_id);
+      setName(cryptoData[0][0].name);
+    }
+  }, [cryptoData]);
+
+  function cryptoInput() {
+    setCryptoCurrency(inputRef.current.value);
+  }
 
   return (
     <div className="container" id="crypto">
@@ -46,6 +48,7 @@ function Crypto() {
               type="text"
               id="crypto-input"
               placeholder="BTC, ETH, LTC, etc..."
+              ref={inputRef}
             />
             <br />
           </form>
@@ -54,7 +57,13 @@ function Crypto() {
           <table className="table" id="stock-table">
             <thead>
               <tr>
-                <th scope="col">Price in USD &emsp;</th>
+                <th scope="col">Coin ID &emsp; {coinId}</th>
+              </tr>
+              <tr>
+                <th scope="col">Coin Name &emsp; {name}</th>
+              </tr>
+              <tr>
+                <th scope="col">Price in USD &emsp; {usd}</th>
               </tr>
             </thead>
             <tbody>
@@ -65,7 +74,7 @@ function Crypto() {
               </tr>
               <div className="button_holder">
                 <input
-                  onClick={getPrice}
+                  onClick={cryptoInput}
                   id="search-crypto"
                   type="submit"
                   value="Search Cryptocurrency"
@@ -73,7 +82,7 @@ function Crypto() {
                 />
               </div>
               <br />
-              <p>Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM,</p>
+              <p>Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM</p>
             </tbody>
           </table>
         </div>

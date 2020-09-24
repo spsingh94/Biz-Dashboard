@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Crypto from "../components/Crypto";
 
 function CryptoPage() {
