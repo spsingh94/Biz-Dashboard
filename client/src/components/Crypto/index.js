@@ -16,7 +16,7 @@ function Crypto() {
   useEffect(() => {
     if (cryptoCurrency != null) {
       fetch(
-        `https://rest.coinapi.io/v1/assets/${cryptoCurrency}/?apikey=${apiKey}`
+        `http://rest.coinapi.io/v1/assets/${cryptoCurrency}/?apikey=${apiKey}`
       )
         .then((res) => res.json())
         .then((data) => setCryptoData([data]));

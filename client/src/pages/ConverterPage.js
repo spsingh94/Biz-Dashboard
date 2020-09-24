@@ -39,7 +39,7 @@ function ConverterPage() {
     }
   }, [fromCurrency, toCurrency]);
 
-  const dataURL = "https://api.exchangeratesapi.io/latest";
+  const dataURL = "http://api.exchangeratesapi.io/latest";
 
   function handleFromAmountChange(e) {
     setAmount(e.target.value);
