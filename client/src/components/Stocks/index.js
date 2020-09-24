@@ -3,17 +3,21 @@ import fetch from "node-fetch";
 import "./style.css";
 
 function Stocks(props) {
+  //   const { onChangeSymbol, setReference } = props;
+  //set up state for symbol because that will change based on user input
   const [symbol, setSymbol] = useState();
   const [stock, setStock] = useState();
   const [stockSymbol, setStockSymbol] = useState();
+  // const [stockError, setStockError] = useState();
   const [stockPrice, setStockPrice] = useState();
   const [stockTodayHigh, setStockTodayHigh] = useState();
   const [stockTodayLow, setStockTodayLow] = useState();
   const [stockClose, setStockClose] = useState();
 
+
   console.log(stock);
-  console.log(symbol);
-  console.log(stock);
+  // console.log(symbol);
+  // console.log(stock);
 
   const inputRef = useRef();
 
@@ -27,9 +31,16 @@ function Stocks(props) {
   useEffect(() => {
     if (symbol != null) {
       fetch(`${dataURL}&symbols=${symbol}`)
-        .then((res) => res.json())
-        // .then((result) => console.log(result))
-        .then((data) => setStock([data]));
+        .then((response) => {  
+          if (response.ok) {
+          return response.json();
+        } else {
+          // throw new Error(setStockError("Please Enter Valid Stock Symbol"))
+          throw new Error(alert("Please Enter Valid Stock Symbol"))
+        }
+      })
+        .then((data) => setStock([data]))
+        .catch((error) => console.log(error))
     }
   }, [dataURL, symbol]);
 
@@ -42,6 +53,14 @@ function Stocks(props) {
       setStockClose(stock[0].data[1].close);
     }
   }, [stock]);
+
+  // useEffect(() => {
+  //   if (stockSymbol[0].error) {
+  //     setStockPrice("hi");
+  //   }
+  // }, [stockSymbol]);
+
+  //if stock equals valid stock
 
   //set up function that sets symbol based off of user input
   function updateSymbol() {
@@ -97,6 +116,11 @@ function Stocks(props) {
                   {stockClose}
                 </td>
               </tr>
+              {/* <tr>
+                <td id="y-close" value="">
+                  {stockError}
+                </td>            
+              </tr> */}
             </tbody>
           </table>
         </div>
