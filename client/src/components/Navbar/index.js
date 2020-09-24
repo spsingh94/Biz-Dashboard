@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
@@ -20,15 +21,66 @@ function Navbar() {
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" href="/home">
-            Home <span class="sr-only">(current)</span>
-          </a>
-          <a class="nav-link" href="/about">
-            About
-          </a>
-          <a class="nav-link" href="/tools">
-            Tools
-          </a>
+          <Link
+            to="/home"
+            className={
+              window.location.pathname === "/home"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            <p className="nav-link">Home</p>
+          </Link>
+          <Link
+            to="/about"
+            className={
+              window.location.pathname === "/about"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            <p className="nav-link">About</p>
+          </Link>
+          <Link
+            to="/tools"
+            className={
+              window.location.pathname === "/tools"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            <p className="nav-link">Tools</p>
+          </Link>
+          <Link
+            to="/crypto"
+            className={
+              window.location.pathname === "/crypto"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            <p className="nav-link">Crypto</p>
+          </Link>
+          <Link
+            to="/stocks"
+            className={
+              window.location.pathname === "/stocks"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            <p className="nav-link">Stocks</p>
+          </Link>
+          <Link
+            to="/converter"
+            className={
+              window.location.pathname === "/converter"
+                ? "nav-link active"
+                : "nav-link"
+            }
+          >
+            <p className="nav-link">Converter</p>
+          </Link>
         </div>
       </div>
     </nav>
