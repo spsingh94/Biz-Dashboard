@@ -3,66 +3,72 @@ import fetch from "node-fetch";
 import "./style.css";
 
 function Stocks(props) {
-  //   const { onChangeSymbol, setReference } = props;
-  //set up state for symbol because that will change based on user input
   const [symbol, setSymbol] = useState();
   const [stock, setStock] = useState();
   const [stockSymbol, setStockSymbol] = useState();
-  // const [stockError, setStockError] = useState();
-  const [stockPrice, setStockPrice] = useState();
-  const [stockTodayHigh, setStockTodayHigh] = useState();
-  const [stockTodayLow, setStockTodayLow] = useState();
-  const [stockClose, setStockClose] = useState();
-
+  const [open, setOpen] = useState();
+  const [high, setHigh] = useState();
+  const [low, setLow] = useState();
+  const [close, setClose] = useState();
+  const [previousClose, setPreviousClose] = useState();
 
   console.log(stock);
-  // console.log(symbol);
-  // console.log(stock);
+  console.log(stockSymbol);
 
   const inputRef = useRef();
 
   //set up api key
   const apiKey = process.env.REACT_APP_STOCKS;
 
-  //set up dataurl
-  const dataURL = `http://api.marketstack.com/v1/eod?access_key=${apiKey}`;
+  var today = new Date();
 
-  //useeffect to update symbols as needed
+  var currentDate =
+    today.getFullYear() +
+    "-" +
+    ("0" + (today.getMonth() + 1)).slice(-2) +
+    "-" +
+    today.getDate();
+  var previousDate =
+    today.getFullYear() +
+    "-" +
+    ("0" + (today.getMonth() + 1)).slice(-2) +
+    "-" +
+    (today.getDate() - 1);
+
+  console.log(currentDate);
+  console.log(previousDate);
+
   useEffect(() => {
     if (symbol != null) {
-      fetch(`${dataURL}&symbols=${symbol}`)
-        .then((response) => {  
+      fetch(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&interval=5min&apikey=${apiKey}`
+      )
+        .then((response) => {
           if (response.ok) {
-          return response.json();
-        } else {
-          // throw new Error(setStockError("Please Enter Valid Stock Symbol"))
-          throw new Error(alert("Please Enter Valid Stock Symbol"))
-        }
-      })
+            return response.json();
+          } else {
+            // throw new Error(setStockError("Please Enter Valid Stock Symbol"))
+            throw new Error(alert("Please Enter Valid Stock Symbol"));
+          }
+        })
         .then((data) => setStock([data]))
-        .catch((error) => console.log(error))
+        .catch((error) => console.log(error));
     }
-  }, [dataURL, symbol]);
+  }, [symbol, apiKey]);
 
   useEffect(() => {
     if (stock != null) {
-      setStockSymbol(stock[0].data[0].symbol);
-      setStockPrice(stock[0].data[0].close);
-      setStockTodayHigh(stock[0].data[0].adj_high);
-      setStockTodayLow(stock[0].data[0].adj_low);
-      setStockClose(stock[0].data[1].close);
+      setStockSymbol(stock[0]["Meta Data"]["2. Symbol"]);
+      setOpen(stock[0]["Time Series (Daily)"][currentDate]["1. open"]);
+      setHigh(stock[0]["Time Series (Daily)"][currentDate]["2. high"]);
+      setLow(stock[0]["Time Series (Daily)"][currentDate]["3. low"]);
+      setClose(stock[0]["Time Series (Daily)"][currentDate]["4. close"]);
+      setPreviousClose(
+        stock[0]["Time Series (Daily)"][previousDate]["1. open"]
+      );
     }
-  }, [stock]);
+  }, [stock, currentDate, previousDate]);
 
-  // useEffect(() => {
-  //   if (stockSymbol[0].error) {
-  //     setStockPrice("hi");
-  //   }
-  // }, [stockSymbol]);
-
-  //if stock equals valid stock
-
-  //set up function that sets symbol based off of user input
   function updateSymbol() {
     setSymbol(inputRef.current.value);
   }
@@ -92,35 +98,32 @@ function Stocks(props) {
             <thead>
               <tr>
                 <th scope="col">Symbol &emsp;</th>
-                {/* <th scope="col">Name &emsp;</th> */}
-                <th scope="col">Price &emsp;</th>
-                <th scope="col">Today's High</th>
-                <th scope="col">Today's Low</th>
-                <th scope="col">At Close Yesterday</th>
+                <th scope="col">Open &emsp;</th>
+                <th scope="col">High</th>
+                <th scope="col">Low</th>
+                <th scope="col">Close</th>
+                <th scope="col">Previous Close</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td id="symbol">{stockSymbol}</td>
-                {/* <td id="name"></td> */}
                 <td id="price" value="">
-                  {stockPrice}
+                  {open}
                 </td>
                 <td id="high" value="">
-                  {stockTodayHigh}
+                  {high}
                 </td>
                 <td id="low" value="">
-                  {stockTodayLow}
+                  {low}
                 </td>
                 <td id="y-close" value="">
-                  {stockClose}
+                  {close}
+                </td>
+                <td id="y-close" value="">
+                  {previousClose}
                 </td>
               </tr>
-              {/* <tr>
-                <td id="y-close" value="">
-                  {stockError}
-                </td>            
-              </tr> */}
             </tbody>
           </table>
         </div>

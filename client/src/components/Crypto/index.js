@@ -9,6 +9,8 @@ function Crypto() {
   const [coinId, setCoinId] = useState();
   const [name, setName] = useState();
 
+  console.log(cryptoData);
+
   const inputRef = useRef();
 
   const apiKey = process.env.REACT_APP_CRYPTO;
@@ -16,7 +18,7 @@ function Crypto() {
   useEffect(() => {
     if (cryptoCurrency != null) {
       fetch(
-        `http://rest.coinapi.io/v1/assets/${cryptoCurrency}/?apikey=${apiKey}`
+        `https://rest.coinapi.io/v1/assets/${cryptoCurrency}/?apikey=${apiKey}`
       )
         .then((res) => res.json())
         .then((data) => setCryptoData([data]));
