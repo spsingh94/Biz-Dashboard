@@ -27,13 +27,13 @@ function Stocks(props) {
     "-" +
     ("0" + (today.getMonth() + 1)).slice(-2) +
     "-" +
-    today.getDate();
+    ("0" + (today.getDate() - 1)).slice(-2);
   var previousDate =
     today.getFullYear() +
     "-" +
     ("0" + (today.getMonth() + 1)).slice(-2) +
     "-" +
-    (today.getDate() - 1);
+    ("0" + (today.getDate() - 2)).slice(-2);
 
   console.log(currentDate);
   console.log(previousDate);
@@ -59,7 +59,7 @@ function Stocks(props) {
   useEffect(() => {
     if (stock != null) {
       setStockSymbol(stock[0]["Meta Data"]["2. Symbol"]);
-      setOpen(stock[0]["Time Series (Daily)"][currentDate]["1. open"]);
+      setOpen(stock[0]["Time Series (Daily)"]["2020-10-02"]["1. open"]);
       setHigh(stock[0]["Time Series (Daily)"][currentDate]["2. high"]);
       setLow(stock[0]["Time Series (Daily)"][currentDate]["3. low"]);
       setClose(stock[0]["Time Series (Daily)"][currentDate]["4. close"]);
@@ -75,9 +75,9 @@ function Stocks(props) {
 
   return (
     <div className="container" id="stock">
+          <h1> Stock Search</h1>
       <div className="card">
         <div className="header">
-          <h1> Stock Search</h1>
         </div>
         <div className="card-body">
           <div className="input-group mb-3">
@@ -90,10 +90,17 @@ function Stocks(props) {
               placeholder="Enter Symbol to Search"
               ref={inputRef}
             />
+            <div className="button_holder">
+              <input
+                onClick={updateSymbol}
+                id="search-crypto"
+                type="submit"
+                value="Search Cryptocurrency"
+                className="btn btn-primary"
+              />
+            </div>
           </div>
-          <button className="btn" id="stock-search" onClick={updateSymbol}>
-            Display Stock Information
-          </button>
+          Display Stock Information
           <table className="table" id="stock-table">
             <thead>
               <tr>

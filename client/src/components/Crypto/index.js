@@ -45,17 +45,29 @@ function Crypto() {
       <div className="card">
         <div className="card-body">
           <form id="search" className="container container-fluid form-group">
-            <label for="crypto-input">Search for a Cryptocurrency</label>
-            <input
-              type="text"
-              id="crypto-input"
-              placeholder="BTC, ETH, LTC, etc..."
-              ref={inputRef}
-            />
-            <br />
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="crypto-input"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+                placeholder="BTC, ETH, LTC, etc..."
+                ref={inputRef}
+              />
+              <div className="button_holder">
+                <input
+                  onClick={cryptoInput}
+                  id="search-crypto"
+                  type="submit"
+                  value="Search Cryptocurrency"
+                  className="btn btn-primary"
+                />
+              </div>
+            </div>
           </form>
-          <br />
           <div className="input-group mb-3"></div>
+          <label for="crypto-input">Search for a Cryptocurrency</label>
           <table className="table" id="stock-table">
             <thead>
               <tr>
@@ -74,15 +86,6 @@ function Crypto() {
                   <div id="crypto-output"></div>
                 </td>
               </tr>
-              <div className="button_holder">
-                <input
-                  onClick={cryptoInput}
-                  id="search-crypto"
-                  type="submit"
-                  value="Search Cryptocurrency"
-                  className="btn btn-primary"
-                />
-              </div>
               <br />
               <p>Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM</p>
             </tbody>

@@ -1,0 +1,22 @@
+#carouselExampleControls {
+    padding-top: 20px;
+    width: 100%;
+    justify-content: center;
+    max-height: 500px;
+}
+
+/* .carousel-inner {
+    height: 400px;
+} */
+
+.d-block {
+    height: 400px;
+}
+
+.link-col {
+    border: black solid 1px;
+}
+
+.quick-links {
+    justify-content: center;
+}
