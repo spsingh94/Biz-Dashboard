@@ -8,6 +8,7 @@ import StocksPage from "../src/pages/StocksPage";
 import ConverterPage from "../src/pages/ConverterPage";
 import { ToolsPage } from "./pages/ToolsPage";
 import Navbar from "../src/components/Navbar";
+import Footer from "../src/components/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/crypto" component={CryptoPage} />
       <Route path="/stocks" component={StocksPage} />
       <Route path="/converter" component={ConverterPage} />
+      <Footer />
     </Router>
   );
 }

@@ -6,14 +6,17 @@ function Stocks(props) {
   const [symbol, setSymbol] = useState();
   const [stock, setStock] = useState();
   const [stockSymbol, setStockSymbol] = useState();
+  const [lastRefreshDate, setLastRefreshDate] = useState();
   const [open, setOpen] = useState();
   const [high, setHigh] = useState();
   const [low, setLow] = useState();
   const [close, setClose] = useState();
-  const [previousClose, setPreviousClose] = useState();
+  const [error, setError] = useState(false);
+  // const [previousClose, setPreviousClose] = useState();
 
   console.log(stock);
   console.log(stockSymbol);
+  console.log(lastRefreshDate);
 
   const inputRef = useRef();
 
@@ -22,20 +25,13 @@ function Stocks(props) {
 
   var today = new Date();
 
-  var currentDate =
-    today.getFullYear() +
-    "-" +
-    ("0" + (today.getMonth() + 1)).slice(-2) +
-    "-" +
-    ("0" + (today.getDate() - 1)).slice(-2);
   var previousDate =
     today.getFullYear() +
     "-" +
     ("0" + (today.getMonth() + 1)).slice(-2) +
     "-" +
-    ("0" + (today.getDate() - 2)).slice(-2);
+    ("0" + (today.getDate() - 1)).slice(-2);
 
-  console.log(currentDate);
   console.log(previousDate);
 
   useEffect(() => {
@@ -43,31 +39,30 @@ function Stocks(props) {
       fetch(
         `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&interval=5min&apikey=${apiKey}`
       )
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            // throw new Error(setStockError("Please Enter Valid Stock Symbol"))
-            throw new Error(alert("Please Enter Valid Stock Symbol"));
-          }
-        })
+        .then((response) => response.json())
         .then((data) => setStock([data]))
-        .catch((error) => console.log(error));
+        .catch((error) => setError(true));
     }
   }, [symbol, apiKey]);
 
   useEffect(() => {
     if (stock != null) {
-      setStockSymbol(stock[0]["Meta Data"]["2. Symbol"]);
-      setOpen(stock[0]["Time Series (Daily)"]["2020-10-02"]["1. open"]);
-      setHigh(stock[0]["Time Series (Daily)"][currentDate]["2. high"]);
-      setLow(stock[0]["Time Series (Daily)"][currentDate]["3. low"]);
-      setClose(stock[0]["Time Series (Daily)"][currentDate]["4. close"]);
-      setPreviousClose(
-        stock[0]["Time Series (Daily)"][previousDate]["1. open"]
-      );
+      setLastRefreshDate(stock[0]["Meta Data"]["3. Last Refreshed"]);
     }
-  }, [stock, currentDate, previousDate]);
+  }, [stock]);
+
+  // setPreviousClose(
+  //   stock[0]["Time Series (Daily)"][previousDate]["1. open"]
+  // )
+  useEffect(() => {
+    if (lastRefreshDate != null) {
+      setStockSymbol(stock[0]["Meta Data"]["2. Symbol"]);
+      setOpen(stock[0]["Time Series (Daily)"][lastRefreshDate]["1. open"]);
+      setHigh(stock[0]["Time Series (Daily)"][lastRefreshDate]["2. high"]);
+      setLow(stock[0]["Time Series (Daily)"][lastRefreshDate]["3. low"]);
+      setClose(stock[0]["Time Series (Daily)"][lastRefreshDate]["4. close"]);
+    }
+  }, [lastRefreshDate, stock]);
 
   function updateSymbol() {
     setSymbol(inputRef.current.value);
@@ -75,10 +70,9 @@ function Stocks(props) {
 
   return (
     <div className="container" id="stock">
-          <h1> Stock Search</h1>
+      <h1> Stock Search</h1>
       <div className="card">
-        <div className="header">
-        </div>
+        <div className="header"></div>
         <div className="card-body">
           <div className="input-group mb-3">
             <input
@@ -127,15 +121,15 @@ function Stocks(props) {
                 <td id="y-close" value="">
                   {close}
                 </td>
-                <td id="y-close" value="">
+                {/* <td id="y-close" value="">
                   {previousClose}
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <p id="p-tag"></p>
+      <p id="p-tag">{error}</p>
     </div>
   );
 }

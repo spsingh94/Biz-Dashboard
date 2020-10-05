@@ -20,3 +20,7 @@
 .quick-links {
     justify-content: center;
 }
+
+.webpage-links {
+    cursor: pointer;
+}

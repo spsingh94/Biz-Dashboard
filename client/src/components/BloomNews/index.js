@@ -31,7 +31,8 @@ function BloomNews() {
           headers: {
             "x-rapidapi-host":
               "bloomberg-market-and-financial-news.p.rapidapi.com",
-            "x-rapidapi-key": `${apiKey}`,
+            "x-rapidapi-key":
+              "21191d6105msh33bc7e64aa0f8d2p1ce9eajsn04ebeb9562c7",
           },
         }
       )
@@ -53,7 +54,7 @@ function BloomNews() {
       setStory8(news[0].modules[1].stories[8]);
       setStory9(news[0].modules[1].stories[9]);
     }
-  });
+  }, [news]);
 
   return (
     <>
@@ -66,7 +67,7 @@ function BloomNews() {
               data-ride="carousel"
             >
               <div className="carousel-inner">
-                <div className="carousel-item active">
+                <div className="carousel-item active webpage-links" onClick={event =>  window.location.href=story0.longURL}>
                   <img
                     src={story0.image}
                     className="d-block w-70"
@@ -74,7 +75,7 @@ function BloomNews() {
                   />
                   <h4>{story0.title}</h4>
                 </div>
-                <div className="carousel-item">
+                <div className="carousel-item webpage-links" onClick={event =>  window.location.href=story1.longURL}>
                   <img
                     src={story1.image}
                     className="d-block w-70"
@@ -82,7 +83,7 @@ function BloomNews() {
                   />
                   <h4>{story1.title}</h4>
                 </div>
-                <div className="carousel-item">
+                <div className="carousel-item webpage-links" onClick={event =>  window.location.href=story2.longURL}>
                   <img
                     src={story2.image}
                     className="d-block w-70"
@@ -118,41 +119,41 @@ function BloomNews() {
             </div>
             <br />
             <br />
-            <h6>{story3.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story3.longURL}>{story3.title}</h6>
             <br />
-            <h6>{story4.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story4.longURL}>{story4.title}</h6>
             <br />
-            <h6>{story5.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story5.longURL}>{story5.title}</h6>
             <br />
-            <h6>{story6.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story6.longURL}>{story6.title}</h6>
             <br />
-            <h6>{story7.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story7.longURL}>{story7.title}</h6>
             <br />
-            <h6>{story8.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story8.longURL}>{story8.title}</h6>
             <br />
-            <h6>{story9.title}</h6>
+            <h6 className="webpage-links" onClick={event =>  window.location.href=story9.longURL}>{story9.title}</h6>
           </Col>
           <Col md="6">
             <div className="link-col">
               <Row className="quick-links">
                 <h4>Quick Links</h4>
               </Row>
-              <Row className="quick-links">
+              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.businessinsider.com/'}>
                 <p>businessinsider.com</p>
               </Row>
-              <Row className="quick-links">
+              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.bloomberg.com/'}>
                 <p>bloomberg.com</p>
               </Row>
-              <Row className="quick-links">
+              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.allbusiness.com/'}>
                 <p>allbusiness.com</p>
               </Row>
-              <Row className="quick-links">
+              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.forbes.com/'}>
                 <p>forbes.com</p>
               </Row>
-              <Row className="quick-links">
+              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.marketwatch.com/'}>
                 <p>marketwatch.com</p>
               </Row>
-              <Row className="quick-links">
+              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.expedia.com/'}>
                 <p>expedia.com</p>
               </Row>
             </div>
