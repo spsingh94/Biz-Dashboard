@@ -5,16 +5,20 @@
     max-height: 500px;
 }
 
-/* .carousel-inner {
-    height: 400px;
-} */
+#news-container {
+    border: gainsboro dotted 1px;
+}
+
+.main-headers {
+    margin-top: 20px;
+}
 
 .d-block {
     height: 400px;
 }
 
 .link-col {
-    border: black solid 1px;
+    border: gainsboro dotted 1px;
 }
 
 .quick-links {

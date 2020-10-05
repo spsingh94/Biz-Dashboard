@@ -1,20 +1,31 @@
 import React from "react";
+import { Row, Col } from "reactstrap";
 import "./style.css";
 
 function Footer() {
   return (
-    <div class="card text-center">
-      <div class="card-header">Featured</div>
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">
-          With supporting text below as a natural lead-in to additional content.
-        </p>
-        <a href="..." class="btn btn-primary">
-          Go somewhere
-        </a>
+    <div class="card text-center footer-div">
+      <Row>
+        <Col md="4">
+          <div class="card-body">
+            <p class="footer-text webpage-links">Home</p>
+            <p class="footer-text webpage-links">About</p>
+            <p class="footer-text webpage-links">Finance Tools</p>
+            <p class="footer-text webpage-links">Contact Us</p>
+          </div>
+        </Col>
+        <Col md="8">
+          <div class="card-body">
+            <p class="footer-text webpage-links">Home</p>
+            <p class="footer-text webpage-links">About</p>
+            <p class="footer-text webpage-links">Finance Tools</p>
+            <p class="footer-text webpage-links">Contact Us</p>
+          </div>
+        </Col>
+      </Row>
+      <div class="card-footer text-muted">
+        ©2020 Biz-Dash All Rights Reserved
       </div>
-      <div class="card-footer text-muted">2 days ago</div>
     </div>
   );
 }

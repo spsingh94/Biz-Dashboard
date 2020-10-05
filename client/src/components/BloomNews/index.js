@@ -32,7 +32,7 @@ function BloomNews() {
             "x-rapidapi-host":
               "bloomberg-market-and-financial-news.p.rapidapi.com",
             "x-rapidapi-key":
-              "21191d6105msh33bc7e64aa0f8d2p1ce9eajsn04ebeb9562c7",
+              `${apiKey}`,
           },
         }
       )
@@ -60,7 +60,8 @@ function BloomNews() {
     <>
       <Container>
         <Row>
-          <Col md="6" style={{ border: "black 1px", borderStyle: "groove" }}>
+          <Col md="6" id="news-container">
+            <h3 className="main-headers">Recent Top Stories</h3>
             <div
               id="carouselExampleControls"
               className="carousel slide"
@@ -135,7 +136,7 @@ function BloomNews() {
           </Col>
           <Col md="6">
             <div className="link-col">
-              <Row className="quick-links">
+              <Row className="quick-links main-headers">
                 <h4>Quick Links</h4>
               </Row>
               <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.businessinsider.com/'}>
