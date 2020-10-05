@@ -1,10 +1,10 @@
-// import React from "react";
-// import YahooNews from "../components/YahooNews";
+import React from "react";
+import Weather from "../components/Weather";
 
-// function AboutPage(){
-// return(
-//     <YahooNews/>
-// )
-// }
+function AboutPage(){
+return(
+    <Weather/>
+)
+}
 
-// export default AboutPage;
+export default AboutPage;
