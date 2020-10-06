@@ -69,7 +69,10 @@ function BloomNews() {
               data-ride="carousel"
             >
               <div className="carousel-inner">
-                <div className="carousel-item active webpage-links" onClick={event =>  window.location.href=story0.longURL}>
+                <div
+                  className="carousel-item active webpage-links"
+                  onClick={(event) => (window.location.href = story0.longURL)}
+                >
                   <img
                     src={story0.image}
                     className="d-block w-70"
@@ -77,7 +80,10 @@ function BloomNews() {
                   />
                   <h4>{story0.title}</h4>
                 </div>
-                <div className="carousel-item webpage-links" onClick={event =>  window.location.href=story1.longURL}>
+                <div
+                  className="carousel-item webpage-links"
+                  onClick={(event) => (window.location.href = story1.longURL)}
+                >
                   <img
                     src={story1.image}
                     className="d-block w-70"
@@ -85,7 +91,10 @@ function BloomNews() {
                   />
                   <h4>{story1.title}</h4>
                 </div>
-                <div className="carousel-item webpage-links" onClick={event =>  window.location.href=story2.longURL}>
+                <div
+                  className="carousel-item webpage-links"
+                  onClick={(event) => (window.location.href = story2.longURL)}
+                >
                   <img
                     src={story2.image}
                     className="d-block w-70"
@@ -121,44 +130,118 @@ function BloomNews() {
             </div>
             <br />
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story3.longURL}>{story3.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story3.longURL)}
+            >
+              {story3.title}
+            </h6>
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story4.longURL}>{story4.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story4.longURL)}
+            >
+              {story4.title}
+            </h6>
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story5.longURL}>{story5.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story5.longURL)}
+            >
+              {story5.title}
+            </h6>
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story6.longURL}>{story6.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story6.longURL)}
+            >
+              {story6.title}
+            </h6>
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story7.longURL}>{story7.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story7.longURL)}
+            >
+              {story7.title}
+            </h6>
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story8.longURL}>{story8.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story8.longURL)}
+            >
+              {story8.title}
+            </h6>
             <br />
-            <h6 className="webpage-links" onClick={event =>  window.location.href=story9.longURL}>{story9.title}</h6>
+            <h6
+              className="webpage-links"
+              onClick={(event) => (window.location.href = story9.longURL)}
+            >
+              {story9.title}
+            </h6>
+            <p
+              className="webpage-links"
+              style={{ textAlign: "right" }}
+              onClick={(event) =>
+                (window.location.href = "https://www.bloomberg.com/")
+              }
+            >
+              more news &rarr;
+            </p>
           </Col>
           <Col md="6">
             <Row>
-              <Weather/>
+              <Weather />
             </Row>
             <div className="link-col">
               <Row className="quick-links main-headers">
                 <h4>Quick Links</h4>
               </Row>
-              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.businessinsider.com/'}>
+              <Row
+                className="quick-links webpage-links"
+                onClick={(event) =>
+                  (window.location.href = "https://www.businessinsider.com/")
+                }
+              >
                 <p>businessinsider.com</p>
               </Row>
-              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.bloomberg.com/'}>
+              <Row
+                className="quick-links webpage-links"
+                onClick={(event) =>
+                  (window.location.href = "https://www.bloomberg.com/")
+                }
+              >
                 <p>bloomberg.com</p>
               </Row>
-              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.allbusiness.com/'}>
+              <Row
+                className="quick-links webpage-links"
+                onClick={(event) =>
+                  (window.location.href = "https://www.allbusiness.com/")
+                }
+              >
                 <p>allbusiness.com</p>
               </Row>
-              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.forbes.com/'}>
+              <Row
+                className="quick-links webpage-links"
+                onClick={(event) =>
+                  (window.location.href = "https://www.forbes.com/")
+                }
+              >
                 <p>forbes.com</p>
               </Row>
-              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.marketwatch.com/'}>
+              <Row
+                className="quick-links webpage-links"
+                onClick={(event) =>
+                  (window.location.href = "https://www.marketwatch.com/")
+                }
+              >
                 <p>marketwatch.com</p>
               </Row>
-              <Row className="quick-links webpage-links" onClick={event =>  window.location.href='https://www.expedia.com/'}>
+              <Row
+                className="quick-links webpage-links"
+                onClick={(event) =>
+                  (window.location.href = "https://www.expedia.com/")
+                }
+              >
                 <p>expedia.com</p>
               </Row>
             </div>

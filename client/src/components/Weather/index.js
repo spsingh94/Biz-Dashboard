@@ -32,8 +32,7 @@ function Weather() {
   const cityInputRef = useRef();
   const stateInputRef = useRef();
 
-  const apiKey= process.env.REACT_APP_WEATHER;
-  
+  const apiKey= process.env.REACT_APP_WEATHER;  
 
   useEffect(() => {
     if (searchZip != null) {
@@ -89,18 +88,16 @@ function Weather() {
 
   return (
     <Container style={{ width: "95%" }}>
-      <Row style={{ justifyContent: "center" }}>
-        <div className="input-group mb-3">
+      <Row className="search-holder">
+        <div className="input-group">
+          {/* input field */}
           <input
             type="text"
             className="form-control"
-            id="crypto-input"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-default"
-            placeholder="Enter Zip Code"
+            id="search-input"
+            placeholder="Enter Zip"
             ref={zipInputRef}
           />
-          <div className="button_holder"></div>
         </div>
         <input
           onClick={referenceZipCode}
@@ -109,41 +106,43 @@ function Weather() {
           value="Search"
           className="btn btn-primary weather-search"
         />
-        <div className="input-group mb-3">
+        <div className="input-group">
+          {/* input field */}
           <input
             type="text"
             className="form-control"
-            id="crypto-input"
+            id="search-input"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
             placeholder="Enter City"
             ref={cityInputRef}
           />
         </div>
-        <div className="input-group mb-3">
+        <div className="input-group">
+          {/* input field */}
           <input
             type="text"
             className="form-control"
-            id="crypto-input"
+            id="search-input"
             aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default"
             placeholder="Enter State"
             ref={stateInputRef}
           />
-          <div className="button_holder"></div>
         </div>
+        {/* button */}
         <input
           onClick={referenceCityState}
           id="search-zip"
           type="submit"
           value="Search"
-          className="btn btn-primary"
+          className="btn btn-primary weather-search"
         />
       </Row>
       <Row id="weatherDisplay">
         <ul>
           <h2 style={{paddingTop:"30px"}}>{city}</h2>
-          <h5>{condition} <img src={conditionIcon} alt="condition-icon"/></h5>
+          <h5>{condition} <img src={conditionIcon} alt="condition-icon" className="condition-icon"/></h5>
           <ol id="cityTemp">Temperature: {temp}°F</ol>
           <ol id="cityHumid">Humidity: {humidity}%</ol>
           <ol id="cityWindSpeed">Wind Speed: {wind} MPH</ol>

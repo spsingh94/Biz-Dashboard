@@ -33,7 +33,9 @@ ol {
 
 #weatherDisplay {
   border: gainsboro dotted 1px;
+  border-top: none;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 #chosenCity {
@@ -50,10 +52,31 @@ ol {
 }
 
 .weather-search {
-  margin-bottom: 10px;
+  height: 20px;
+  font-size: 7px;
+  margin-top: 12px;
 }
 
-#crypto-input {
-    border-radius: 20px;
-    width: 20px;
+#search-input {
+  border-radius: 20px;
+  height: 25px;
+  /* width: 50px; */
+  font-size: 10px;
+}
+
+.input-group {
+  width: 80px;
+  /* margin-left: 15px; */
+  margin-top: 10px;
+}
+
+.condition-icon {
+  height: 100px;
+}
+
+.search-holder {
+  display: flex;
+  justify-content: center;
+  border: gainsboro 1px dotted;
+  border-bottom: none;
 }

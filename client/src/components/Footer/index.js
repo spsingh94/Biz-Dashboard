@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
+import logo from "../../images/bizdash.png";
 import "./style.css";
 
 function Footer() {
@@ -7,12 +8,7 @@ function Footer() {
     <div className="card text-center footer-div">
       <Row>
         <Col md="4">
-          <div className="card-body">
-            <p className="footer-text webpage-links">Home</p>
-            <p className="footer-text webpage-links">About</p>
-            <p className="footer-text webpage-links">Finance Tools</p>
-            <p className="footer-text webpage-links">Contact Us</p>
-          </div>
+        <img src={logo} className="logo-image" alt="logo" style={{marginTop:"60px"}}/>
         </Col>
         <Col md="8">
           <div className="card-body">
