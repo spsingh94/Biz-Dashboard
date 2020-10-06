@@ -28,3 +28,8 @@
 .webpage-links {
     cursor: pointer;
 }
+
+.webpage-links:hover {
+    color: blue;
+    text-decoration: underline;
+}

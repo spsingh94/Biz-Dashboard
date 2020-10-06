@@ -3,6 +3,7 @@ import { Button, Container, Row, Col } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import fetch from "node-fetch";
+import Weather from "../Weather";
 
 function BloomNews() {
   const [news, setNews] = useState();
@@ -135,6 +136,9 @@ function BloomNews() {
             <h6 className="webpage-links" onClick={event =>  window.location.href=story9.longURL}>{story9.title}</h6>
           </Col>
           <Col md="6">
+            <Row>
+              <Weather/>
+            </Row>
             <div className="link-col">
               <Row className="quick-links main-headers">
                 <h4>Quick Links</h4>
