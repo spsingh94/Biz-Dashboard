@@ -1,23 +1,13 @@
-h1 {
+/* h1 {
   text-align: center;
   background-color: #004d99;
   color: white;
   padding: 20px 20px;
-}
-
-#citySelect {
-  padding: 0px 20px 15px 20px;
-  align-content: center;
-}
+} */
 
 .list-group-item:hover {
   background-color: #66b3ff;
 }
-
-/* .form-control {
-    border-radius: 20px;
-    width: 50%;
-} */
 
 li {
   text-align: center;
@@ -45,26 +35,20 @@ ol {
   width: 100%;
 }
 
-.forecast {
-  background-color: dodgerblue;
-  padding: 50px;
-  margin: -10px;
-}
-
 .weather-search {
   height: 20px;
-  font-size: 7px;
-  margin-top: 12px;
+  font-size: 10px;
+  margin-top: 10px;
+  padding-left: 3px;
 }
 
 #search-input {
   border-radius: 20px;
-  height: 25px;
   /* width: 50px; */
   font-size: 10px;
 }
 
-.input-group {
+.weather-bar {
   width: 80px;
   /* margin-left: 15px; */
   margin-top: 10px;
@@ -79,4 +63,15 @@ ol {
   justify-content: center;
   border: gainsboro 1px dotted;
   border-bottom: none;
+}
+
+.input-or {
+  margin-top: 10px;
+  padding: 0px 15px 0px 0px;
+  font-family: 'Goudy Bookletter 1911', serif;
+  font-size: 20px;
+}
+
+.temp-results {
+  font-family: 'Goudy Bookletter 1911', serif;
 }

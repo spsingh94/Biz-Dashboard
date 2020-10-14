@@ -1,0 +1,37 @@
+.tool-image {
+    height: 100px;
+    /* width: 160px; */
+}
+
+@media (max-width: 575px) {
+    .tool-image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 355px) {
+    .tool-image {
+        height: 175px;
+    }
+}
+
+@media (max-width: 300px) {
+    .tool-image {
+        height: 125px;
+    }
+}
+
+@media (max-width: 240px) {
+    .tool-image {
+        height: 100px;
+    }
+}
+
+.card-text {
+    font-size: 12px;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+/* 
+.card {
+    width: 100px;
+} */

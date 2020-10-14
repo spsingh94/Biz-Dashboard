@@ -70,7 +70,7 @@ function Stocks(props) {
 
   return (
     <div className="container" id="stock">
-      <h1> Stock Search</h1>
+      <h1 className="main-headers" style={{color:"white", textAlign:"center"}}> Stock Search</h1>
       <div className="card">
         <div className="header"></div>
         <div className="card-body">
@@ -78,7 +78,7 @@ function Stocks(props) {
             <input
               type="text"
               className="form-control"
-              id="stock-input"
+              id="search-input"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
               placeholder="Enter Symbol to Search"

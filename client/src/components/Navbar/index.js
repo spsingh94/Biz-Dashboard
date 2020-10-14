@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../../images/bizdash.png";
-import { Link } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
@@ -46,13 +45,13 @@ function Navbar() {
               Dropdown
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="/stocks">
+              <a className="dropdown-item nav-link" href="/stocks">
                 Stocks
               </a>
-              <a className="dropdown-item" href="/crypto">
+              <a className="dropdown-item nav-link" href="/crypto">
                 Crypto Currency
               </a>
-              <a className="dropdown-item" href="/converter">
+              <a className="dropdown-item nav-link" href="/converter">
                 Currency Exchange
               </a>
             </div>

@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import fetch from "node-fetch";
 import Weather from "../Weather";
+import { Tools } from "../Tools";
 
 function BloomNews() {
   const [news, setNews] = useState();
@@ -59,7 +60,7 @@ function BloomNews() {
 
   return (
     <>
-      <Container>
+      <Container style={{backgroundColor:"white"}}>
         <Row>
           <Col md="6" id="news-container">
             <h3 className="main-headers">Recent Top Stories</h3>
@@ -78,7 +79,7 @@ function BloomNews() {
                     className="d-block w-70"
                     alt="story0"
                   />
-                  <h4>{story0.title}</h4>
+                  <h4 className="main-headers" id="slider-story">{story0.title}</h4>
                 </div>
                 <div
                   className="carousel-item webpage-links"
@@ -89,7 +90,7 @@ function BloomNews() {
                     className="d-block w-70"
                     alt="story1"
                   />
-                  <h4>{story1.title}</h4>
+                  <h4 className="main-headers" id="slider-story">{story1.title}</h4>
                 </div>
                 <div
                   className="carousel-item webpage-links"
@@ -100,7 +101,7 @@ function BloomNews() {
                     className="d-block w-70"
                     alt="story2"
                   />
-                  <h4>{story2.title}</h4>
+                  <h4 className="main-headers" id="slider-story">{story2.title}</h4>
                 </div>
               </div>
               <a
@@ -191,6 +192,9 @@ function BloomNews() {
           <Col md="6">
             <Row>
               <Weather />
+            </Row>
+            <Row>
+              <Tools />
             </Row>
             <div className="link-col">
               <Row className="quick-links main-headers">

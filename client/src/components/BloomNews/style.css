@@ -1,3 +1,7 @@
+body {
+    background-color: #004d99;
+}
+
 #carouselExampleControls {
     padding-top: 20px;
     width: 100%;
@@ -11,6 +15,11 @@
 
 .main-headers {
     margin-top: 20px;
+    font-family: 'Six Caps', sans-serif;
+}
+
+#slider-story {
+    font-size: 40px;
 }
 
 .d-block {
@@ -27,6 +36,7 @@
 
 .webpage-links {
     cursor: pointer;
+    font-family: 'Goudy Bookletter 1911', serif;
 }
 
 .webpage-links:hover {

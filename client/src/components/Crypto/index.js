@@ -40,7 +40,7 @@ function Crypto() {
   return (
     <div className="container" id="crypto">
       <div className="header">
-        <h1>Coin Value Search</h1>
+        <h1 className="main-headers" style={{color:"white", textAlign:"center"}}>Coin Value Search</h1>
       </div>
       <div className="card">
         <div className="card-body">
@@ -49,7 +49,7 @@ function Crypto() {
               <input
                 type="text"
                 className="form-control"
-                id="crypto-input"
+                id="search-input"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
                 placeholder="BTC, ETH, LTC, etc..."

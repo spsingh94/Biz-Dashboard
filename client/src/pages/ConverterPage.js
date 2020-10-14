@@ -53,6 +53,9 @@ function ConverterPage() {
 
   return (
     <>
+      <div className="main-headers" style={{color:"white", textAlign:"center"}}>
+        <h1>Currency Exchange Rate</h1>
+      </div>
       <Converter
         currencyData={currencyData}
         selectedCurrency={fromCurrency}

@@ -15,14 +15,16 @@ function Converter(props) {
   // }
 
   return (
-    <div className="coverter-table">
+    <>
+    <div className="converter-table">
       <input
         type="number"
         className="input"
         value={amount}
         onChange={onChangeAmount}
+        id="search-input"
       />
-      <select value={selectedCurrency} onChange={onChangeCurrency}>
+      <select id="crypto-select" value={selectedCurrency} onChange={onChangeCurrency}>
         {currencyData.map((option) => (
           <option key={option} value={option}>
             {option}
@@ -30,6 +32,7 @@ function Converter(props) {
         ))}
       </select>
     </div>
+    </>
   );
 }
 

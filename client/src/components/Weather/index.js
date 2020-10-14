@@ -21,7 +21,9 @@ function Weather() {
   const [wind, setWind] = useState();
   const [city, setCity] = useState();
   const [condition, setCondition] = useState();
-  const [conditionIcon, setConditionIcon] = useState("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC");
+  const [conditionIcon, setConditionIcon] = useState(
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC"
+  );
 
   console.log(searchZip);
   console.log(searchCity);
@@ -32,7 +34,7 @@ function Weather() {
   const cityInputRef = useRef();
   const stateInputRef = useRef();
 
-  const apiKey= process.env.REACT_APP_WEATHER;  
+  const apiKey = process.env.REACT_APP_WEATHER;
 
   useEffect(() => {
     if (searchZip != null) {
@@ -70,7 +72,11 @@ function Weather() {
       );
       setCity(weather[0].name);
       setCondition(weather[0].weather[0].description);
-      setConditionIcon("http://openweathermap.org/img/wn/" + weather[0].weather[0].icon + "@2x.png");
+      setConditionIcon(
+        "http://openweathermap.org/img/wn/" +
+          weather[0].weather[0].icon +
+          "@2x.png"
+      );
       setSearchZip(null);
       setSearchCity(null);
       setSearchState(null);
@@ -89,7 +95,7 @@ function Weather() {
   return (
     <Container style={{ width: "95%" }}>
       <Row className="search-holder">
-        <div className="input-group">
+        <div className="input-group weather-bar">
           {/* input field */}
           <input
             type="text"
@@ -99,14 +105,17 @@ function Weather() {
             ref={zipInputRef}
           />
         </div>
-        <input
+        <button
           onClick={referenceZipCode}
           id="search-zip"
           type="submit"
           value="Search"
-          className="btn btn-primary weather-search"
-        />
-        <div className="input-group">
+          className="btn weather-search"
+        >
+          <i class="fa fa-search"></i>
+        </button>
+        <p className="input-or">|</p>
+        <div className="input-group weather-bar">
           {/* input field */}
           <input
             type="text"
@@ -118,7 +127,7 @@ function Weather() {
             ref={cityInputRef}
           />
         </div>
-        <div className="input-group">
+        <div className="input-group weather-bar">
           {/* input field */}
           <input
             type="text"
@@ -131,21 +140,30 @@ function Weather() {
           />
         </div>
         {/* button */}
-        <input
+        <button
           onClick={referenceCityState}
           id="search-zip"
           type="submit"
           value="Search"
-          className="btn btn-primary weather-search"
-        />
+          className="btn weather-search"
+        >
+          <i class="fa fa-search"></i>
+        </button>
       </Row>
       <Row id="weatherDisplay">
         <ul>
-          <h2 style={{paddingTop:"30px"}}>{city}</h2>
-          <h5>{condition} <img src={conditionIcon} alt="condition-icon" className="condition-icon"/></h5>
-          <ol id="cityTemp">Temperature: {temp}°F</ol>
-          <ol id="cityHumid">Humidity: {humidity}%</ol>
-          <ol id="cityWindSpeed">Wind Speed: {wind} MPH</ol>
+          <h2 style={{ paddingTop: "30px" }}>{city}</h2>
+          <h5>
+            {condition}{" "}
+            <img
+              src={conditionIcon}
+              alt="condition-icon"
+              className="condition-icon"
+            />
+          </h5>
+          <ol className="temp-results" id="cityTemp">Temperature: {temp}°F</ol>
+          <ol className="temp-results" id="cityHumid">Humidity: {humidity}%</ol>
+          <ol className="temp-results" id="cityWindSpeed">Wind Speed: {wind} MPH</ol>
           {/* <ol id="cityUV">UV Index:</ol> */}
         </ul>
       </Row>
