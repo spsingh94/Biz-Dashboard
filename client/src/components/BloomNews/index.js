@@ -59,7 +59,6 @@ function BloomNews() {
   }, [news]);
 
   return (
-    <>
       <Container style={{backgroundColor:"white"}}>
         <Row>
           <Col md="6" id="news-container">
@@ -252,7 +251,6 @@ function BloomNews() {
           </Col>
         </Row>
       </Container>
-    </>
   );
 }
 

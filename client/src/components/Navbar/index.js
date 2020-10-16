@@ -59,7 +59,7 @@ function Navbar() {
                   : "nav-link"
               }
             >
-              <p className="locName">Stocks</p>
+              <p className="locName drop-name">Stocks</p>
             </Link>
               {/* <a className="dropdown-item nav-link" href="/crypto">
                 Crypto Currency
@@ -72,7 +72,7 @@ function Navbar() {
                   : "nav-link"
               }
             >
-              <p className="locName">Crypto Currency</p>
+              <p className="locName drop-name">Crypto Currency</p>
             </Link>
               {/* <a className="dropdown-item nav-link" href="/converter">
                 Currency Exchange
@@ -85,7 +85,7 @@ function Navbar() {
                   : "nav-link"
               }
             >
-              <p className="locName">Currency Exchange</p>
+              <p className="locName drop-name">Currency Exchange</p>
             </Link>
             </div>
           </li>
