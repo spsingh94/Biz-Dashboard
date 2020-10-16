@@ -13,8 +13,7 @@ function Crypto() {
 
   const inputRef = useRef();
 
-  // const apiKey = process.env.REACT_APP_CRYPTO;
-  const apiKey = "B870A371-C114-4A1F-A497-1088E1CCBACE";
+  const apiKey = process.env.REACT_APP_CRYPTO;
 
   useEffect(() => {
     if (cryptoCurrency != null) {
