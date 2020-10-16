@@ -14,13 +14,14 @@ export function Tools() {
           <Col sm="4">
             {/* <div className="card" style={{ width: "160px" }}> */}
             <div className="card">
+              <a href="/stocks">
               <img
                 src={stocks}
                 className="card-img-top tool-image"
                 alt="stocks"
-                onClick={() => (window.location.href = "/stocks")}
                 style={{ cursor: "pointer" }}
               />
+              </a>
               <div className="card-body">
                 <p className="card-text">
                   Stocks - Check daily stock prices by inputting the stock code
@@ -32,13 +33,14 @@ export function Tools() {
           <Col sm="4">
             {/* <div className="card" style={{ width: "160px" }}> */}
             <div className="card">
+              <a href="/converter">
               <img
                 src={exchange}
                 className="card-img-top tool-image"
                 alt="stocks"
-                onClick={() => (window.location.href = "/converter")}
                 style={{ cursor: "pointer" }}
               />
+              </a>
               <div className="card-body">
                 <p className="card-text">
                   Currency Converter - Find out what the exhchange rate is of
@@ -50,13 +52,14 @@ export function Tools() {
           <Col sm="4">
             {/* <div className="card" style={{ width: "160px" }}> */}
             <div className="card">
+              <a href="/crypto">
               <img
                 src={crypto}
                 className="card-img-top tool-image"
                 alt="stocks"
-                onClick={() => (window.location.href = "/crypto")}
                 style={{ cursor: "pointer" }}
               />
+              </a>
               <div className="card-body">
                 <p className="card-text">
                   Crypto Currency - Check the current price of all
