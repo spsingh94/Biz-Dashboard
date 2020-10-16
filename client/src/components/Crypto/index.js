@@ -13,7 +13,8 @@ function Crypto() {
 
   const inputRef = useRef();
 
-  const apiKey = process.env.REACT_APP_CRYPTO;
+  // const apiKey = process.env.REACT_APP_CRYPTO;
+  const apiKey = "B870A371-C114-4A1F-A497-1088E1CCBACE";
 
   useEffect(() => {
     if (cryptoCurrency != null) {
@@ -44,7 +45,7 @@ function Crypto() {
       </div>
       <div className="card">
         <div className="card-body">
-          <form id="search" className="container container-fluid form-group">
+          {/* <form id="search" className="container container-fluid form-group"> */}
             <div className="input-group mb-3">
               <input
                 type="text"
@@ -67,7 +68,7 @@ function Crypto() {
               </button>
               </div>
             </div>
-          </form>
+          {/* </form> */}
           <div className="input-group mb-3"></div>
           <label for="crypto-input">Search for a Cryptocurrency</label>
           <table className="table" id="stock-table">
