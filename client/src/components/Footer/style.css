@@ -5,3 +5,18 @@
 .footer-text {
     font-size: 12px;
 }
+
+.foot-loc {
+    font-size: 12px;
+    color: black;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.foot-loc:hover {
+    color: cornflowerblue;
+}
+
+/* .nav-link {
+    width: 50px;
+} */

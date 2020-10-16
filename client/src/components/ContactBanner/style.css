@@ -1,0 +1,47 @@
+.banner-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  height: 480px;
+  width: 900px;
+}
+
+@media (max-width: 890px) {
+  .banner {
+    height: 280px;
+    width: 600px;
+  }
+}
+
+@media (max-width: 610px) {
+  .banner {
+    height: 180px;
+    width: 400px;
+  }
+}
+
+@media (max-width: 390px) {
+  .banner {
+    height: 130px;
+    width: 250px;
+  }
+}
+
+.contact-icons {
+  color: white;
+  font-size: 40px;
+  padding: 0px 10px 0px 10px;
+}
+
+@media (max-width: 410px) {
+  .contact-icons {
+    font-size: 20px;
+  }
+}
+
+.contact-icons:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

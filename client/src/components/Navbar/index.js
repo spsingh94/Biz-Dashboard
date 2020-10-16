@@ -35,18 +35,6 @@ function Navbar() {
               <p className="locName">Home</p>
             </Link>
           </li>
-          <li className="nav-item">
-          <Link
-              to="/about"
-              className={
-                window.location.pathname === "/about"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
-              <p className="locName">About</p>
-            </Link>
-          </li>
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
