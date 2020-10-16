@@ -8,6 +8,7 @@ function Crypto() {
   const [usd, setUsd] = useState();
   const [coinId, setCoinId] = useState();
   const [name, setName] = useState();
+  const [error, setError] = useState("");
 
   console.log(cryptoData);
 
@@ -21,7 +22,15 @@ function Crypto() {
         `https://rest.coinapi.io/v1/assets/${cryptoCurrency}/?apikey=${apiKey}`
       )
         .then((res) => res.json())
-        .then((data) => setCryptoData([data]));
+        // .then((data) => setCryptoData([data]))
+
+        .then((data) => {
+          if (data.length < 1) {
+            setError("Error! Please Enter Valid Coin Symbol.");
+          } else {
+            setCryptoData([data]);
+          }
+        });
     }
   }, [cryptoCurrency, apiKey]);
 
@@ -30,6 +39,7 @@ function Crypto() {
       setUsd(cryptoData[0][0].price_usd);
       setCoinId(cryptoData[0][0].asset_id);
       setName(cryptoData[0][0].name);
+      setError("");
     }
   }, [cryptoData]);
 
@@ -40,22 +50,27 @@ function Crypto() {
   return (
     <div className="container" id="crypto">
       <div className="header">
-        <h1 className="main-headers" style={{color:"white", textAlign:"center"}}>Coin Value Search</h1>
+        <h1
+          className="main-headers"
+          style={{ color: "white", textAlign: "center" }}
+        >
+          Coin Value Search
+        </h1>
       </div>
       <div className="card">
         <div className="card-body">
           {/* <form id="search" className="container container-fluid form-group"> */}
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                id="search-input"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-                placeholder="BTC, ETH, LTC, etc..."
-                ref={inputRef}
-              />
-              <div className="button_holder">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              id="search-input"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+              placeholder="BTC, ETH, LTC, etc..."
+              ref={inputRef}
+            />
+            <div className="button_holder">
               <button
                 onClick={cryptoInput}
                 id="search-zip"
@@ -65,8 +80,8 @@ function Crypto() {
               >
                 <i class="fa fa-search"></i>
               </button>
-              </div>
             </div>
+          </div>
           {/* </form> */}
           <div className="input-group mb-3"></div>
           <label for="crypto-input">Search for a Cryptocurrency</label>
@@ -88,8 +103,11 @@ function Crypto() {
                   <div id="crypto-output"></div>
                 </td>
               </tr>
+          <p id="p-tag">{error}</p>
               <br />
-              <p className="common">Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM</p>
+              <p className="common">
+                Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM
+              </p>
             </tbody>
           </table>
         </div>

@@ -11,12 +11,13 @@ function Stocks(props) {
   const [high, setHigh] = useState();
   const [low, setLow] = useState();
   const [close, setClose] = useState();
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   // const [previousClose, setPreviousClose] = useState();
 
   console.log(stock);
   console.log(stockSymbol);
   console.log(lastRefreshDate);
+  console.log(error);
 
   const inputRef = useRef();
 
@@ -40,20 +41,38 @@ function Stocks(props) {
         `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&interval=5min&apikey=${apiKey}`
       )
         .then((response) => response.json())
-        .then((data) => setStock([data]))
-        .catch((error) => setError(true));
+        // .then((data) => {
+        //   if(data !== error) {
+        //     setStock([data])
+        //   }
+        //   else {
+        //     setStock("error")
+        //   }
+        // })
+        // .then((data) => {
+        //   if (!data.ok) {
+        //     setError(true);
+        //   } else {
+        //     setStock([data]);
+        //   }
+        // })
+        .then((data) => {
+          if(data["Error Message"]) {
+            setError("Error! Please Enter Valid Stock Symbol.")
+          } else {
+            setStock([data])
+          }
+        });
     }
   }, [symbol, apiKey]);
 
   useEffect(() => {
     if (stock != null) {
       setLastRefreshDate(stock[0]["Meta Data"]["3. Last Refreshed"]);
-    }
-  }, [stock]);
-
-  // setPreviousClose(
-  //   stock[0]["Time Series (Daily)"][previousDate]["1. open"]
-  // )
+      setError("");
+    } 
+  }, [stock, error]);
+  
   useEffect(() => {
     if (lastRefreshDate != null) {
       setStockSymbol(stock[0]["Meta Data"]["2. Symbol"]);
@@ -61,6 +80,9 @@ function Stocks(props) {
       setHigh(stock[0]["Time Series (Daily)"][lastRefreshDate]["2. high"]);
       setLow(stock[0]["Time Series (Daily)"][lastRefreshDate]["3. low"]);
       setClose(stock[0]["Time Series (Daily)"][lastRefreshDate]["4. close"]);
+      setStock(null);
+      setLastRefreshDate(null);
+      setError("");
     }
   }, [lastRefreshDate, stock]);
 
@@ -90,15 +112,15 @@ function Stocks(props) {
               placeholder="Enter Symbol to Search"
               ref={inputRef}
             />
-              <button
-                onClick={updateSymbol}
-                id="search-zip"
-                type="submit"
-                value="Search"
-                className="btn tool-search"
-              >
-                <i class="fa fa-search"></i>
-              </button>
+            <button
+              onClick={updateSymbol}
+              id="search-zip"
+              type="submit"
+              value="Search"
+              className="btn tool-search"
+            >
+              <i class="fa fa-search"></i>
+            </button>
           </div>
           Display Stock Information
           <table className="table" id="stock-table">
@@ -109,7 +131,7 @@ function Stocks(props) {
                 <th scope="col">High</th>
                 <th scope="col">Low</th>
                 <th scope="col">Close</th>
-                <th scope="col">Previous Close</th>
+                {/* <th scope="col">Previous Close</th> */}
               </tr>
             </thead>
             <tbody>
@@ -133,10 +155,14 @@ function Stocks(props) {
               </tr>
             </tbody>
           </table>
-              <p className="common">Common Stocks: Microsoft (MSFT), Nvidia (NVDA), Apple (AAPL), Intel (INTC), PayPal (PYPL), Adobe (ADBE), AT&amp;T (T), Visa (V), Etsy (ETSY), Ford (F)</p>
+      <p id="p-tag">{error}</p>
+          <p className="common">
+            Common Stocks: Microsoft (MSFT), Nvidia (NVDA), Apple (AAPL), Intel
+            (INTC), PayPal (PYPL), Adobe (ADBE), AT&amp;T (T), Visa (V), Etsy
+            (ETSY), Ford (F)
+          </p>
         </div>
       </div>
-      <p id="p-tag">{error}</p>
     </div>
   );
 }
