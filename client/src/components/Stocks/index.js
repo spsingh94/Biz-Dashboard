@@ -101,8 +101,8 @@ function Stocks(props) {
       </h1>
       <div className="card">
         <div className="header"></div>
-        <div className="card-body">
-          <div className="input-group mb-3">
+        <div className="card-body"> 
+          <div className="input-group">
             <input
               type="text"
               className="form-control"
@@ -122,40 +122,38 @@ function Stocks(props) {
               <i class="fa fa-search"></i>
             </button>
           </div>
-          Display Stock Information
+          {/* Display Stock Information */}
+          <br/>
           <table className="table" id="stock-table">
             <thead>
               <tr>
-                <th scope="col">Symbol &emsp;</th>
-                <th scope="col">Open &emsp;</th>
-                <th scope="col">High</th>
-                <th scope="col">Low</th>
-                <th scope="col">Close</th>
+                <th className="table-col" scope="col">Symbol &emsp;</th>
+                <th className="table-col" scope="col">Open &emsp;</th>
+                <th className="table-col" scope="col">High</th>
+                <th className="table-col" scope="col">Low</th>
+                <th className="table-col" scope="col">Close</th>
                 {/* <th scope="col">Previous Close</th> */}
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td id="symbol">{stockSymbol}</td>
-                <td id="price" value="">
+                <td className="stock-results" id="symbol">{stockSymbol}</td>
+                <td className="stock-results" id="price" value="">
                   {open}
                 </td>
-                <td id="high" value="">
+                <td className="stock-results" id="high" value="">
                   {high}
                 </td>
-                <td id="low" value="">
+                <td className="stock-results" id="low" value="">
                   {low}
                 </td>
-                <td id="y-close" value="">
+                <td className="stock-results" id="y-close" value="">
                   {close}
                 </td>
-                {/* <td id="y-close" value="">
-                  {previousClose}
-                </td> */}
               </tr>
             </tbody>
           </table>
-      <p id="p-tag">{error}</p>
+      <p className="error-tag">{error}</p>
           <p className="common">
             Common Stocks: Microsoft (MSFT), Nvidia (NVDA), Apple (AAPL), Intel
             (INTC), PayPal (PYPL), Adobe (ADBE), AT&amp;T (T), Visa (V), Etsy

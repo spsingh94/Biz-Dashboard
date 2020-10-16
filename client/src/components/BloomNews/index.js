@@ -22,7 +22,7 @@ function BloomNews() {
   console.log(news);
   console.log(story6);
 
-  // const apiKey = process.env.REACT_APP_NEWS;
+  const apiKey = process.env.REACT_APP_NEWS;
 
   useEffect(() => {
     if (news == null) {
@@ -34,7 +34,7 @@ function BloomNews() {
             "x-rapidapi-host":
               "bloomberg-market-and-financial-news.p.rapidapi.com",
             "x-rapidapi-key":
-              "21191d6105msh33bc7e64aa0f8d2p1ce9eajsn04ebeb9562c7",
+              `${apiKey}`,
           },
         }
       )

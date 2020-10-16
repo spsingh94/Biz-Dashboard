@@ -88,13 +88,13 @@ function Crypto() {
           <table className="table" id="stock-table">
             <thead>
               <tr>
-                <th scope="col">Coin ID &emsp; {coinId}</th>
+                <th className="table-col" scope="col">Coin ID &emsp; {coinId}</th>
               </tr>
               <tr>
-                <th scope="col">Coin Name &emsp; {name}</th>
+                <th className="table-col" scope="col">Coin Name &emsp; {name}</th>
               </tr>
               <tr>
-                <th scope="col">Price in USD &emsp; {usd}</th>
+                <th className="table-col" scope="col">Price in USD &emsp; {usd}</th>
               </tr>
             </thead>
             <tbody>
@@ -103,7 +103,7 @@ function Crypto() {
                   <div id="crypto-output"></div>
                 </td>
               </tr>
-          <p id="p-tag">{error}</p>
+          <p className="error-tag">{error}</p>
               <br />
               <p className="common">
                 Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM

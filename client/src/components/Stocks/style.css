@@ -1,7 +1,86 @@
 .tool-search {
-    font-size: 10px;
+  font-size: 10px;
+}
+
+.common {
+  font-size: 12px;
+}
+
+.table-col {
+  font-size: 11px;
+}
+
+.stock-results {
+  font-size: 11px;
+}
+
+.error-tag {
+  color: red;
+}
+
+@media (max-width: 427px) {
+  .table-col {
+    font-size: 8px;
+  }
+
+  .stock-results {
+    font-size: 8px;
   }
 
   .common {
-      font-size: 12px;
+    font-size: 9px;
   }
+
+  .error-tag {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 375px) {
+  .table-col {
+    font-size: 5px;
+  }
+
+  .stock-results {
+    font-size: 5px;
+  }
+
+  .common {
+    font-size: 7px;
+  }
+
+  .error-tag {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 308px) {
+  .table-col {
+    font-size: 3px;
+  }
+
+  .stock-results {
+    font-size: 3px;
+  }
+
+  .common {
+    font-size: 5px;
+  }
+
+  .error-tag {
+    font-size: 5px;
+  }
+}
+/* 
+@media (max-width: 369px) {
+  .table-col {
+    font-size: 4px;
+  }
+
+  .stock-results {
+    font-size: 3px;
+  }
+  .common {
+    font-size: 5px;
+  }
+} */

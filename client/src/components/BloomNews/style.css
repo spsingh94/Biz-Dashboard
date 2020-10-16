@@ -19,7 +19,8 @@ body {
 }
 
 #slider-story {
-    font-size: 40px;
+    font-size: 27px;
+    font-family: 'Goudy Bookletter 1911', serif;
 }
 
 .d-block {
