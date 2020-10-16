@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import { Link } from "react-router-dom";
 import "./style.css";
 import stocks from "../../images/stocksimage.jpg";
 import exchange from "../../images/exchangeimage.jpg";
@@ -13,15 +14,22 @@ export function Tools() {
         <Row>
           <Col sm="4">
             {/* <div className="card" style={{ width: "160px" }}> */}
-            <div className="card">
-              <a href="/stocks">
+            <div className="card tool-card">
+            <Link
+              to="/stocks"
+              className={
+                window.location.pathname === "/stocks"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
               <img
                 src={stocks}
                 className="card-img-top tool-image"
                 alt="stocks"
                 style={{ cursor: "pointer" }}
               />
-              </a>
+            </Link>
               <div className="card-body">
                 <p className="card-text">
                   Stocks - Check daily stock prices by inputting the stock code
@@ -32,15 +40,22 @@ export function Tools() {
           </Col>
           <Col sm="4">
             {/* <div className="card" style={{ width: "160px" }}> */}
-            <div className="card">
-              <a href="/converter">
+            <div className="card tool-card">
+            <Link
+              to="/exchange"
+              className={
+                window.location.pathname === "/exchange"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
               <img
                 src={exchange}
                 className="card-img-top tool-image"
                 alt="stocks"
                 style={{ cursor: "pointer" }}
               />
-              </a>
+            </Link>
               <div className="card-body">
                 <p className="card-text">
                   Currency Converter - Find out what the exhchange rate is of
@@ -51,15 +66,22 @@ export function Tools() {
           </Col>
           <Col sm="4">
             {/* <div className="card" style={{ width: "160px" }}> */}
-            <div className="card">
-              <a href="/crypto">
+            <div className="card tool-card">
+            <Link
+              to="/crypto"
+              className={
+                window.location.pathname === "/crypto"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
               <img
                 src={crypto}
                 className="card-img-top tool-image"
                 alt="stocks"
                 style={{ cursor: "pointer" }}
               />
-              </a>
+            </Link>
               <div className="card-body">
                 <p className="card-text">
                   Crypto Currency - Check the current price of all

@@ -1,5 +1,5 @@
 .tool-image {
-    height: 100px;
+    height: 60px;
     /* width: 160px; */
 }
 
@@ -28,7 +28,7 @@
 }
 
 .card-text {
-    font-size: 12px;
+    font-size: 10px;
     font-family: 'Goudy Bookletter 1911', serif;
 }
 /* 
