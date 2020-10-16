@@ -56,13 +56,15 @@ function Crypto() {
                 ref={inputRef}
               />
               <div className="button_holder">
-                <input
-                  onClick={cryptoInput}
-                  id="search-crypto"
-                  type="submit"
-                  value="Search Cryptocurrency"
-                  className="btn btn-primary"
-                />
+              <button
+                onClick={cryptoInput}
+                id="search-zip"
+                type="submit"
+                value="Search"
+                className="btn tool-search"
+              >
+                <i class="fa fa-search"></i>
+              </button>
               </div>
             </div>
           </form>
@@ -87,7 +89,7 @@ function Crypto() {
                 </td>
               </tr>
               <br />
-              <p>Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM</p>
+              <p className="common">Common Coins: BTC, ETH, LTC, NMC, PPC, AUR, NXT, XEM</p>
             </tbody>
           </table>
         </div>

@@ -70,7 +70,13 @@ function Stocks(props) {
 
   return (
     <div className="container" id="stock">
-      <h1 className="main-headers" style={{color:"white", textAlign:"center"}}> Stock Search</h1>
+      <h1
+        className="main-headers"
+        style={{ color: "white", textAlign: "center" }}
+      >
+        {" "}
+        Stock Search
+      </h1>
       <div className="card">
         <div className="header"></div>
         <div className="card-body">
@@ -84,15 +90,15 @@ function Stocks(props) {
               placeholder="Enter Symbol to Search"
               ref={inputRef}
             />
-            <div className="button_holder">
-              <input
+              <button
                 onClick={updateSymbol}
-                id="search-crypto"
+                id="search-zip"
                 type="submit"
-                value="Search Cryptocurrency"
-                className="btn btn-primary"
-              />
-            </div>
+                value="Search"
+                className="btn tool-search"
+              >
+                <i class="fa fa-search"></i>
+              </button>
           </div>
           Display Stock Information
           <table className="table" id="stock-table">
@@ -127,6 +133,7 @@ function Stocks(props) {
               </tr>
             </tbody>
           </table>
+              <p className="common">Common Stocks: Microsoft (MSFT), Nvidia (NVDA), Apple (AAPL), Intel (INTC), PayPal (PYPL), Adobe (ADBE), AT&amp;T (T), Visa (V), Etsy (ETSY), Ford (F)</p>
         </div>
       </div>
       <p id="p-tag">{error}</p>

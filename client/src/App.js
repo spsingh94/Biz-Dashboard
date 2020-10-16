@@ -14,12 +14,14 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Route path="/home" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
+      <Route exact path="/home" component={HomePage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/tools" component={ToolsPage} />
       <Route path="/crypto" component={CryptoPage} />
       <Route path="/stocks" component={StocksPage} />
       <Route path="/converter" component={ConverterPage} />
+      <Route path="/contact" component={HomePage} />
       <Footer />
     </Router>
   );

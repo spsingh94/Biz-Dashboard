@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../images/bizdash.png";
 import "./style.css";
 
@@ -23,14 +24,28 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="home">
-              Home <span className="sr-only">(current)</span>
-            </a>
+            <Link
+              to="/"
+              className={
+                window.location.pathname === "/"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <p className="locName">Home</p>
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="about">
-              About
-            </a>
+          <Link
+              to="/about"
+              className={
+                window.location.pathname === "/about"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <p className="locName">About</p>
+            </Link>
           </li>
           <li className="nav-item dropdown">
             <a
@@ -45,21 +60,61 @@ function Navbar() {
               Dropdown
             </a>
             <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item nav-link" href="/stocks">
+              {/* <a className="dropdown-item nav-link" href="/stocks">
                 Stocks
-              </a>
-              <a className="dropdown-item nav-link" href="/crypto">
+              </a> */}
+              <Link
+              to="/stocks"
+              className={
+                window.location.pathname === "/stocks"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <p className="locName">Stocks</p>
+            </Link>
+              {/* <a className="dropdown-item nav-link" href="/crypto">
                 Crypto Currency
-              </a>
-              <a className="dropdown-item nav-link" href="/converter">
+              </a> */}
+              <Link
+              to="/crypto"
+              className={
+                window.location.pathname === "/crypto"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <p className="locName">Crypto Currency</p>
+            </Link>
+              {/* <a className="dropdown-item nav-link" href="/converter">
                 Currency Exchange
-              </a>
+              </a> */}
+              <Link
+              to="/converter"
+              className={
+                window.location.pathname === "/converter"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <p className="locName">Currency Exchange</p>
+            </Link>
             </div>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/contact">
+            {/* <a className="nav-link" href="/contact">
               Contact Us
-            </a>
+            </a>           */}
+            <Link
+              to="/contact"
+              className={
+                window.location.pathname === "/contact"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
+              <p className="locName">Contact Us</p>
+            </Link>
           </li>
         </ul>
         {/* <form className="form-inline my-2 my-lg-0">
