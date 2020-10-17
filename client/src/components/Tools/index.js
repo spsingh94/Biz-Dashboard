@@ -42,9 +42,9 @@ export function Tools() {
             {/* <div className="card" style={{ width: "160px" }}> */}
             <div className="card tool-card">
             <Link
-              to="/exchange"
+              to="/converter"
               className={
-                window.location.pathname === "/exchange"
+                window.location.pathname === "/converter"
                   ? "nav-link active"
                   : "nav-link"
               }
