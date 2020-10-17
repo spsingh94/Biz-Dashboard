@@ -6,9 +6,14 @@ import "./style.css";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/home">
+      <Link
+        to="/"
+        className={
+          window.location.pathname === "/" ? "nav-link active" : "nav-link"
+        }
+      >
         <img src={logo} className="logo-image" alt="logo" />
-      </a>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -52,41 +57,41 @@ function Navbar() {
                 Stocks
               </a> */}
               <Link
-              to="/stocks"
-              className={
-                window.location.pathname === "/stocks"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
-              <p className="locName drop-name">Stocks</p>
-            </Link>
+                to="/stocks"
+                className={
+                  window.location.pathname === "/stocks"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                <p className="locName drop-name">Stocks</p>
+              </Link>
               {/* <a className="dropdown-item nav-link" href="/crypto">
                 Crypto Currency
               </a> */}
               <Link
-              to="/crypto"
-              className={
-                window.location.pathname === "/crypto"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
-              <p className="locName drop-name">Crypto Currency</p>
-            </Link>
+                to="/crypto"
+                className={
+                  window.location.pathname === "/crypto"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                <p className="locName drop-name">Crypto Currency</p>
+              </Link>
               {/* <a className="dropdown-item nav-link" href="/converter">
                 Currency Exchange
               </a> */}
               <Link
-              to="/converter"
-              className={
-                window.location.pathname === "/converter"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
-              <p className="locName drop-name">Currency Exchange</p>
-            </Link>
+                to="/converter"
+                className={
+                  window.location.pathname === "/converter"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+              >
+                <p className="locName drop-name">Currency Exchange</p>
+              </Link>
             </div>
           </li>
           <li className="nav-item">
