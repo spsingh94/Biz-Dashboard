@@ -1,1 +1,1 @@
-Maintain important financial data in regards to stocks, cryptocurrency, or currency conversion rates. Web Books is an organizational tool for entrepreneurs and business owners to better assess their investments and prospects.
+Biz-Dashboard is the businessman and entrepreneur’s application. View top business-related news, check the weather, and catch up on stock prices, cryptocurrency prices, and check currency conversion rates.
