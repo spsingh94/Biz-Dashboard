@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 4000;
+const path = require('path');
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -13,6 +14,14 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, "client/public/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 // Connect to the Mongo DB
 mongoose.connect(
