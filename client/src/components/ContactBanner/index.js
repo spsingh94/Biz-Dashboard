@@ -1,6 +1,6 @@
 import React from "react";
 import banner from "../../images/bizdashimage.jpg";
-import { Container, Col, Row } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import "./style.css";
 
 function ContactBanner() {

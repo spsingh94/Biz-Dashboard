@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import fetch from "node-fetch";
@@ -33,8 +33,7 @@ function BloomNews() {
           headers: {
             "x-rapidapi-host":
               "bloomberg-market-and-financial-news.p.rapidapi.com",
-            "x-rapidapi-key":
-              `${apiKey}`,
+            "x-rapidapi-key": `${apiKey}`,
           },
         }
       )
@@ -60,7 +59,7 @@ function BloomNews() {
 
   return (
     <>
-      <Container style={{backgroundColor:"white"}}>
+      <Container style={{ backgroundColor: "white" }}>
         <Row>
           <Col md="6" id="news-container">
             <h3 className="main-headers">Recent Top Stories</h3>
@@ -79,7 +78,9 @@ function BloomNews() {
                     className="d-block w-70"
                     alt="story0"
                   />
-                  <h4 className="main-headers" id="slider-story">{story0.title}</h4>
+                  <h4 className="main-headers" id="slider-story">
+                    {story0.title}
+                  </h4>
                 </div>
                 <div
                   className="carousel-item webpage-links"
@@ -90,7 +91,9 @@ function BloomNews() {
                     className="d-block w-70"
                     alt="story1"
                   />
-                  <h4 className="main-headers" id="slider-story">{story1.title}</h4>
+                  <h4 className="main-headers" id="slider-story">
+                    {story1.title}
+                  </h4>
                 </div>
                 <div
                   className="carousel-item webpage-links"
@@ -101,7 +104,9 @@ function BloomNews() {
                     className="d-block w-70"
                     alt="story2"
                   />
-                  <h4 className="main-headers" id="slider-story">{story2.title}</h4>
+                  <h4 className="main-headers" id="slider-story">
+                    {story2.title}
+                  </h4>
                 </div>
               </div>
               <a
