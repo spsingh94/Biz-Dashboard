@@ -2,6 +2,7 @@
   "name": "employee_directory",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://biz-dashboard.herokuapp.com/",
   "engines": {
     "node": "12.18.x"
   },
@@ -12,6 +13,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.5.2",
     "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "jquery": "^3.5.1",
