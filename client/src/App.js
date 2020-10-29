@@ -15,7 +15,6 @@ function App() {
     <Router>
       <Navbar />
       <Route exact path="/" component={HomePage} />
-      <Route exact path="/home" component={HomePage} />
       <Route path="/tools" component={ToolsPage} />
       <Route path="/crypto" component={CryptoPage} />
       <Route path="/stocks" component={StocksPage} />
